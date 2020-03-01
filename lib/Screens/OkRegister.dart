@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:damo_one/Screens/otpUi3.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:core';
@@ -48,8 +49,7 @@ class RegistrationScreenState extends State<RegistrationScreen> {
                   onTap: () {
                     if(_formKey.currentState.validate()) {
                       var route = new MaterialPageRoute(
-                          builder: (BuildContext context) => null
-//                    new SecondPage(
+                          builder: (BuildContext context) => new Otp3(
 //                      value: User(
 //                        username: regName.text ,
 //                        email: regEmail.text ,
@@ -57,7 +57,7 @@ class RegistrationScreenState extends State<RegistrationScreen> {
 //                        password: regPassword.text ,
 //                        conformPassword: regConformPassword.text ,
 //                      ) ,
-//                    ) ,
+                    ) ,
                       );
                       Navigator.of(context).push(route);
                     } else {
@@ -217,14 +217,12 @@ class RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      fillColor: Colors.white,
-                      filled: true,
                       border: InputBorder.none,
-                      focusColor: Colors.deepPurple,
                     ),
                     keyboardType: TextInputType.text,
                     textInputAction: TextInputAction.next,
                     controller: regName,
+                    cursorColor: Colors.green,
                     validator: nameValidation,
                   ),
                 ),
@@ -243,6 +241,7 @@ class RegistrationScreenState extends State<RegistrationScreen> {
                     keyboardType: TextInputType.phone,
                     textInputAction: TextInputAction.newline,
                     controller: regPhoneNumber,
+                    cursorColor: Colors.green,
                     validator: phoneNumberValidation,
                   ),
                 ),
@@ -261,6 +260,7 @@ class RegistrationScreenState extends State<RegistrationScreen> {
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.go,
                     controller: regEmail,
+                    cursorColor: Colors.green,
                     validator: emailValidation,
                   ),
                 ),
